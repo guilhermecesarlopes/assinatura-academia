@@ -8,6 +8,13 @@
       "when": 1791645452971,
       "tag": "0000_wonderful_nick_fury",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1791662255875,
+      "tag": "0001_dominio_inicial",
+      "breakpoints": true
     }
   ]
 }
