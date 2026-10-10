@@ -1,0 +1,19 @@
+name = "assinatura-academia-api"
+main = "src/index.ts"
+compatibility_date = "2026-10-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Segredos (DATABASE_URL etc.) via `wrangler secret put` ou GitHub Environments.
+# Em dev local, use apps/api/.dev.vars (ignorado pelo git).
+
+[vars]
+APP_VERSION = "0.0.0"
+ALLOWED_ORIGIN = "http://localhost:3000"
+
+[env.staging]
+name = "assinatura-academia-api-staging"
+vars = { APP_VERSION = "0.0.0", ALLOWED_ORIGIN = "https://staging.exemplo.com" }
+
+[env.production]
+name = "assinatura-academia-api"
+vars = { APP_VERSION = "0.0.0", ALLOWED_ORIGIN = "https://exemplo.com" }

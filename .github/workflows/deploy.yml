@@ -1,0 +1,48 @@
+name: Deploy
+
+# main → staging automático. Produção: disparo manual com aprovação no Environment "production".
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      target:
+        description: Ambiente
+        type: choice
+        options: [staging, production]
+        default: production
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ github.event_name == 'push' && 'staging' || inputs.target }}
+    concurrency: deploy-${{ github.event_name == 'push' && 'staging' || inputs.target }}
+    env:
+      TARGET: ${{ github.event_name == 'push' && 'staging' || inputs.target }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+
+      # Migração roda ANTES do deploy, com o usuário "migrator" (DDL).
+      - name: Migrar banco
+        run: pnpm db:migrate
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL_MIGRATOR }}
+
+      - name: Deploy API (Cloudflare Workers)
+        working-directory: apps/api
+        run: pnpm exec wrangler deploy --env "$TARGET"
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      # Front: ligar o deploy do Next.js aqui quando o host for escolhido
+      # (Cloudflare via OpenNext ou Vercel). Ver docs/adr/0001-stack.md.
