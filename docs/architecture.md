@@ -18,8 +18,8 @@ Usuário → Cloudflare (DNS, SSL, WAF, DDoS)
 
 ## Ambientes
 
-| Ambiente    | Banco                    | Deploy                |
-| ----------- | ------------------------ | --------------------- |
-| dev (local) | branch Neon `dev`        | —                     |
-| staging     | branch Neon `staging`    | push em main          |
-| production  | branch Neon `production` | manual, com aprovação |
+| Ambiente    | Banco                    | Deploy                                                    |
+| ----------- | ------------------------ | --------------------------------------------------------- |
+| dev (local) | branch Neon `dev`        | —                                                         |
+| staging     | branch Neon `staging`    | push em main (Cloudflare Workers Builds; migração manual) |
+| production  | branch Neon `production` | manual, com aprovação                                     |
