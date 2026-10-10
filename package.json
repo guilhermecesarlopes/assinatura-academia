@@ -1,5 +1,5 @@
 {
-  "name": "assinatura-academia",
+  "name": "assinatura-academia-api",
   "private": true,
   "packageManager": "pnpm@10.28.0",
   "engines": {
