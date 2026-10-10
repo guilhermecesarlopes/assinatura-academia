@@ -1,9 +1,8 @@
 name: Deploy
 
-# main → staging automático. Produção: disparo manual com aprovação no Environment "production".
+# Staging: Cloudflare Workers Builds faz o deploy a cada push em main (configurado no painel da Cloudflare).
+# Aqui: disparo manual (production com aprovação no Environment "production", ou staging se precisar).
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
     inputs:
       target:
