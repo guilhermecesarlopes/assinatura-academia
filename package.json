@@ -15,6 +15,7 @@
     "format:check": "prettier --check .",
     "db:generate": "pnpm --filter @assinatura-academia/db generate",
     "db:migrate": "pnpm --filter @assinatura-academia/db migrate",
+    "setup:env": "node scripts/setup-env.mjs",
     "prepare": "husky"
   },
   "devDependencies": {

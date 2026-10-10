@@ -10,8 +10,8 @@ contratos em `packages/contracts` (Zod). O front fica em
 ```bash
 corepack enable
 pnpm install
-cp .env.example .env              # preencha DATABASE_URL (branch Neon `dev`)
-cp .env.example apps/api/.dev.vars
+pnpm setup:env                    # cria .env e apps/api/.dev.vars com o branch Neon `dev`
+                                  # (outro branch: pnpm setup:env dev-seunome)
 pnpm dev                          # api: :8787
 ```
 
