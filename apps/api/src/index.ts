@@ -8,9 +8,7 @@ import { health } from './routes/health';
 const app = new Hono<Env>();
 
 app.use('*', secureHeaders());
-app.use('*', (c, next) =>
-  cors({ origin: c.env.ALLOWED_ORIGIN, credentials: true })(c, next),
-);
+app.use('*', (c, next) => cors({ origin: c.env.ALLOWED_ORIGIN, credentials: true })(c, next));
 
 app.route('/health', health);
 
