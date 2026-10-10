@@ -13,8 +13,8 @@ ALLOWED_ORIGIN = "http://localhost:3000"
 
 [env.staging]
 name = "assinatura-academia-api-staging"
-vars = { APP_VERSION = "0.0.0", ALLOWED_ORIGIN = "https://staging.exemplo.com" }
+vars = { APP_VERSION = "0.0.0", ALLOWED_ORIGIN = "https://assinatura-academia-web-staging.guilherme-lopes-08a.workers.dev" }
 
 [env.production]
 name = "assinatura-academia-api"
-vars = { APP_VERSION = "0.0.0", ALLOWED_ORIGIN = "https://exemplo.com" }
+vars = { APP_VERSION = "0.0.0", ALLOWED_ORIGIN = "https://assinatura-academia-web.guilherme-lopes-08a.workers.dev" }
