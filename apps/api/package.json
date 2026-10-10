@@ -11,17 +11,17 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@hono/zod-validator": "^0.7.0",
     "@assinatura-academia/contracts": "workspace:*",
     "@assinatura-academia/db": "workspace:*",
+    "@hono/zod-validator": "^0.7.0",
     "hono": "^4.6.0",
     "zod": "^4.0.0"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.0.0",
     "@assinatura-academia/config": "workspace:*",
+    "@cloudflare/workers-types": "^4.0.0",
     "typescript": "^5.6.0",
-    "vitest": "^3.0.0",
+    "vitest": "^5.0.3",
     "wrangler": "^4.0.0"
   }
 }
