@@ -11,7 +11,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@hono/zod-validator": "^0.7.0",
+    "@hono/zod-validator": "^0.9.1",
     "@assinatura-academia/contracts": "workspace:*",
     "@assinatura-academia/db": "workspace:*",
     "hono": "^4.6.0",
