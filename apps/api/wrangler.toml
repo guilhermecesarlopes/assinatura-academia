@@ -1,5 +1,6 @@
 name = "assinatura-academia-api"
 main = "src/index.ts"
+account_id = "08a57b6fc07fb6bec9e92a4903dc81fe"
 compatibility_date = "2026-10-01"
 compatibility_flags = ["nodejs_compat"]
 
